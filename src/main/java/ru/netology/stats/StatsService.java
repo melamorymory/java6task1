@@ -2,20 +2,17 @@ package ru.netology.stats;
 
 public class StatsService {
 
-    public int sumSales(int[] sales){
+    public int sumSales(int[] sales) {
         int sum = 0;
-        for (int sale: sales) {
+        for (int sale : sales) {
             sum += sale;
-        } return sum;
+        }
+        return sum;
     }
 
     public int averageSales(int[] sales) {
-        int sum = 0;
-        int month = 0;
-        for (int sale : sales) {
-            sum += sale;
-            month += 1;
-        } return sum / month;
+        StatsService service = new StatsService();
+        return service.sumSales(sales) / sales.length;
     }
 
     public int maxSales(int[] sales) {
@@ -26,7 +23,8 @@ public class StatsService {
                 maxMonth = month;
             }
             month += 1;
-        } return maxMonth + 1;
+        }
+        return maxMonth + 1;
     }
 
     public int minSales(int[] sales) {
@@ -37,38 +35,31 @@ public class StatsService {
                 minMonth = month;
             }
             month += 1;
-        } return minMonth + 1;
+        }
+        return minMonth + 1;
     }
 
     public int underAverageSales(int[] sales) {
-        int sum = 0;
-        int month = 0;
-        for (int sale : sales) {
-            sum += sale;
-            month += 1;
-        }
-        int average = sum / month;
+        StatsService service = new StatsService();
+        int average = service.averageSales(sales);
         int monthCount = 0;
         for (int sale : sales) {
             if (sale < average) {
                 monthCount += 1;
             }
-        } return monthCount;
+        }
+        return monthCount;
     }
 
     public int overAverageSales(int[] sales) {
-        int sum = 0;
-        int month = 0;
-        for (int sale : sales) {
-            sum += sale;
-            month += 1;
-        }
-        int average = sum / month;
+        StatsService service = new StatsService();
+        int average = service.averageSales(sales);
         int monthCount = 0;
         for (int sale : sales) {
             if (sale > average) {
                 monthCount += 1;
             }
-        } return monthCount;
+        }
+        return monthCount;
     }
 }
